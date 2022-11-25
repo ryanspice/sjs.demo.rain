@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html >
+    <head>
+        <meta charset="UTF-8">
+        <title>Spice.js</title>    
+    </head>
+    <body>
+        <script rel=prefetch type="application/x-javascript" src="leaves.js"></script>
+        <script rel=prefetch type="application/x-javascript" src="spice.js"></script>
+        <script rel=prefetch type="text/javascript">
+
+
+					
+		//Initialize App, OnLoad
+		App.OnLoad = function(){
+		
+			//Initialize
+			App.Init("Rain",1920,1080);
+			
+			//Snap to top
+			App.ext.top();
+			
+			//Set the canvas background to transparent
+			App.canvas.background_set("transparent");
+			
+			//Set the path to where the images are stored
+			App.options.paths.images = "";
+		
+		}
+		
+		//Main state prototype
+		_Main.prototype = {
+		
+			//State name
+			name:"Menu",
+			
+			//State initialize
+			init:function() {
+				
+				//Append favicon
+				this.app.ext.metatag.metaAppend(this.app.ext.metatag.metaLink("icon.png","shortcut icon","image/png"));
+
+				//Toggle debug on or off
+				this.app.ext.debug.toggle("off");
+				
+				//Get width and height
+				this.w = this.app.client.setWidth;
+				this.h = this.app.client.setHeight;
+				
+				//Set canvas pointer events to none
+				this.app.canvas.getCanvas().style.pointerEvents = "none";
+				
+			return true;
+			},
+			
+			//State update
+			update:function() {
+			
+				//Game logic	
+			
+			return true;
+			},
+			
+			//State draw
+			draw:function() {
+				leavesDraw(this.app)
+			return true;
+				this.visuals.circle_free(this.app.ext.input.x,this.app.ext.input.y,1,"#444444",1);
+			}
+		};
+			
+        </script>
+		<div style="position:fixed;height:100%;width:100%;background:url('toronto.jpg');background-size:100%;">
+			eh
+		</div>
+        <canvas id="canvas" ></canvas>
+        <canvas id="buffer"></canvas>
+    </body>
+</html>
